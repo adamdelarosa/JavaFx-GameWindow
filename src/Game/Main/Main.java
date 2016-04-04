@@ -13,6 +13,9 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
+
+    public Stage fon;
+
     public static void main(String args[]) {
         launch(args);
     }
@@ -22,17 +25,17 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         root = FXMLLoader.load(getClass().getClassLoader().getResource("Game/Frame/windows.fxml"));
-        stage.setTitle("My New Stage Title");
+        //stage.setTitle("My New Stage Title");
         stage.setScene(new Scene(root, 600, 750));
         stage.show();
-
-
         mission();
-
+        fon = stage;
     }
 
+
+
     public void mission(){
-        KeyboardSet keyboardSet = new KeyboardSet();
-        BackGround backGround = new BackGround();
+        BackGround backGround = new BackGround(this);
+        backGround.backGround();
     }
 }
